@@ -61,6 +61,10 @@ jobs:
       - name: melos bootstrap
         run: melos bootstrap
 
+      - name: Run tests
+        if: success() || failure()
+        run: melos run test --no-select
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
